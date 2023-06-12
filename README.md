@@ -1,22 +1,31 @@
-# pihole-internetsehat
-ULO ISP  ( Trust+Positif By Kemkominfo RI ) pada DNS Pi-Hole By Julius
+Pihole-Internetsehat
 =
+ULO ISP pada DNS Pi-Hole By Julius
+=
+**Perintah Update Pi-Hole**
 ```
+#pihole -up
 ```
-**Jangan lupa di-update ya, dengan perintah ' pihole -g ' atau menu Tools -> " Update Gravity "**
+**Jangan lupa di-update ya, dengan perintah**
 ```
-**Jangan lupa configurasi mode Blocking nanti di Hasil Hostname pada cmd nslookup " domain kamu" **
+#pihole -g
 ```
+
+**Jangan lupa configurasi mode Blocking nanti di Hasil Hostname pada cmd nslookup " domain kamu"**
+
 **Cari di FTP : /etc/pihole/pihole-FTL.conf atau boleh perintah  nano /etc/pihole/pihole-FTL.conf**
+
+
+**tambah baris bawah dan langsung copy ke nano pihole-FTL**
 ```
-**tambah baris bawah**
+PRIVACYLEVEL=0
+Blocking=IP-NODATA-AAAA
+RATE_LIMIT=1000/60
+PIHOLE_PTR=HOSTNAME
+MAXDBDAYS=0
+DBIMPORT=no
 ```
-  1. PRIVACYLEVEL=0
-  2. Blocking=IP-NODATA-AAAA
-  3. RATE_LIMIT=1000/60
-  4. PIHOLE_PTR=HOSTNAME ( ganti hostname pi.hole menjadi HOSTNAME ).
-  5. MAXDBDAYS=365 menjadi 0
-  6. DBIMPORT=yes menjadi no ( agar disable database kaya reset semula database 0 )
+
+**Jika sudah terus save dan perintah**
 ```
-```
-**Jika sudah terus save dan perintah " pihole restartdns "**
+#pihole restartdns
